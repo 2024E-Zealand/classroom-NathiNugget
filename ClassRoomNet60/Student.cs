@@ -16,21 +16,15 @@ namespace ClassRoomNet60
             BirthMonth = birthMonth;
             BirthDay = birthDay;
 
-            if (BirthMonth < 3 || BirthMonth == 12)
+
+            Season = BirthMonth switch
             {
-                Season = "Winter"; 
-            }
-            else if (birthMonth > 2 && BirthMonth <= 5)
-            {
-                Season = "Spring"; 
-            }
-            else if (birthMonth >= 6 && birthMonth <= 8) {
-                Season = "Summer"; 
-            }
-            else
-            {
-                Season = "Autumn"; 
-            }
+                < 3 or 12 => "Winter",
+                > 2 and <= 5 => "Spring",
+                >= 6 and <= 8 => "Summer", 
+                _ => "Autumn"
+            }; 
+            
             
         }
 

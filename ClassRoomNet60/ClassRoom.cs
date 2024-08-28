@@ -16,23 +16,13 @@ namespace ClassRoomNet60
         public List<Student> StudentList { get; set; }
         public DateTime SemesterStart { get; set; }
 
-        public Dictionary<string, int> BirthDaysBySeason()
+        public void BirthDaysBySeason()
         {
-            Dictionary<string, int> dict = new Dictionary<string, int>();
-            dict.Add("Winter", 0);
-            dict.Add("Spring", 0);
-            dict.Add("Summer", 0);
-            dict.Add("Autumn", 0);
+            foreach (IGrouping<string, Student> item in StudentList.GroupBy(x => x.Season))
+            {
+                Console.WriteLine($"Students born during {item.First().Season}-season: {item.Count()}"); 
+            }
 
-            StudentList.ForEach(student => {
-                dict[student.Season]++; 
-            }); 
-            
-            
-
-            
-
-            return dict;
         }
     }
 }
