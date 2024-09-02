@@ -21,7 +21,4 @@ foreach (Student s in cr.StudentList)
     Console.WriteLine(string.Join(',', s.Name, s.BirthDay, s.BirthMonth, s.Season));
     
 }
-foreach (KeyValuePair<string, int> kvp in cr.BirthDaysBySeason())
-{
-    Console.WriteLine($"Amount of people with birthdays in: {kvp.Key} is {kvp.Value}");
-}
+cr.BirthDaysBySeason(); 
