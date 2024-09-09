@@ -19,11 +19,12 @@ namespace ClassRoomNet60
 
             Season = BirthMonth switch
             {
-                < 3 or 12 => "Winter",
+               > 0 and < 3 or 12 => "Winter",
                 > 2 and <= 5 => "Spring",
-                >= 6 and <= 8 => "Summer", 
-                _ => "Autumn"
-            }; 
+                >= 6 and <= 8 => "Summer",
+                >= 9 and <= 11 => "Autumn",
+                _ => throw new ArgumentOutOfRangeException()
+            };
             
             
         }
